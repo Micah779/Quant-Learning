@@ -1,0 +1,11 @@
+Front,Back,Category,Tags
+"What is the bid-ask spread?","The difference between the highest price a buyer is willing to pay (bid) and the lowest price a seller is willing to accept (ask).","Market Microstructure","spread,liquidity"
+"What is market impact?","The effect of a large trade on the market price, typically causing the price to move against the trader.","Market Microstructure","impact,liquidity,trading"
+"What is VaR (Value at Risk)?","A statistical measure of the potential loss in value of a portfolio over a defined period for a given confidence interval.","Risk Management","var,risk,statistics"
+"What is the Sharpe ratio?","A measure of risk-adjusted return, calculated as (portfolio return - risk-free rate) / portfolio volatility.","Portfolio Theory","sharpe,risk-adjusted,performance"
+"What is arbitrage?","The simultaneous purchase and sale of the same asset in different markets to profit from price differences.","Trading","arbitrage,profit,markets"
+"What is the Black-Scholes model?","A mathematical model for pricing European options, based on the assumption that stock prices follow a geometric Brownian motion.","Asset Pricing","options,pricing,black-scholes"
+"What is cointegration?","A statistical property of time series where a linear combination of non-stationary series is stationary.","Statistics","cointegration,time-series,stationarity"
+"What is the efficient market hypothesis?","The theory that asset prices fully reflect all available information, making it impossible to consistently achieve returns above average.","Market Theory","efficient-market,hypothesis,information"
+"What is Monte Carlo simulation?","A computational method that uses random sampling to obtain numerical results, commonly used in finance for option pricing and risk analysis.","Numerical Methods","monte-carlo,simulation,random"
+"What is the CAPM?","Capital Asset Pricing Model - a model that describes the relationship between systematic risk and expected return for assets.","Asset Pricing","capm,risk,return"
