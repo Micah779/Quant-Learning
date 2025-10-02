@@ -1,6 +1,6 @@
-# Quant Learning 🚀
+# Quant Learning - Micah Aldrich
 
-A comprehensive roadmap to becoming a Quantitative Finance Professional
+A comprehensive personal roadmap to learining the fundementals of Quantitative Finance
 
 [![Progress](https://img.shields.io/badge/Progress-0%25-red?style=for-the-badge)](https://github.com/Micah779/Quant-Learning)
 [![Current Module](https://img.shields.io/badge/Current%20Module-1.1%20Financial%20Markets-blue?style=for-the-badge)](https://github.com/Micah779/Quant-Learning)
@@ -68,11 +68,6 @@ Each subtopic contains:
 
 ## 🎓 Learning Methodology
 
-### Daily Workflow
-1. **Morning**: Study theory and concepts
-2. **Afternoon**: Implement hands-on projects
-3. **Evening**: Update progress and commit work
-
 ### Commit Convention
 ```
 feat: finished [subtopic] notes + [project_name] project
@@ -98,11 +93,5 @@ feat: finished [subtopic] notes + [project_name] project
 
 ## 🎯 Goals
 
-- Master quantitative finance fundamentals
-- Build production-ready trading systems
-- Develop advanced risk management skills
-- Create a professional quant portfolio
-
----
-
-*Ready to become a quantitative finance professional? Let's start with the foundations! 🚀*
+- Learn quantitative finance fundamentals
+- Create a starter qf portfolio
