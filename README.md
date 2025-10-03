@@ -2,9 +2,9 @@
 
 A comprehensive personal roadmap to learining the fundementals of Quantitative Finance
 
-[![Progress](https://img.shields.io/badge/Progress-0%25-red?style=for-the-badge)](https://github.com/Micah779/Quant-Learning)
-[![Current Module](https://img.shields.io/badge/Current%20Module-1.1%20Financial%20Markets-blue?style=for-the-badge)](https://github.com/Micah779/Quant-Learning)
-[![Status](https://img.shields.io/badge/Status-Starting%20Out-orange?style=for-the-badge)](https://github.com/Micah779/Quant-Learning)
+[![Progress](https://img.shields.io/badge/Progress-3%25-green?style=for-the-badge)](https://github.com/Micah779/Quant-Learning)
+[![Current Module](https://img.shields.io/badge/Current%20Module-1.2%20Probability%20%26%20Statistics-blue?style=for-the-badge)](https://github.com/Micah779/Quant-Learning)
+[![Status](https://img.shields.io/badge/Status-In%20Progress-yellow?style=for-the-badge)](https://github.com/Micah779/Quant-Learning)
 
 ## 🎯 Learning Path Overview
 
@@ -13,8 +13,8 @@ This repository contains a structured curriculum for quantitative finance, organ
 ## 📊 Progress Tracker
 
 ### 🏗️ Module 1: Foundations of Quantitative Finance
-- [ ] **1.1 Financial Markets & Instruments** - Equities, bonds, derivatives, FX, commodities
-- [ ] **1.2 Probability & Statistics** - Distributions, hypothesis testing, statistical arbitrage
+- [x] **1.1 Financial Markets & Instruments** - Equities, bonds, derivatives, FX, commodities
+- [🔄] **1.2 Probability & Statistics** - Distributions, hypothesis testing, statistical arbitrage
 - [ ] **1.3 Linear Algebra & Calculus** - Matrices, optimization, numerical methods
 - [ ] **1.4 Programming Foundations** - Python, C++, R, SQL, Git, Linux
 
@@ -87,9 +87,9 @@ feat: finished [subtopic] notes + [project_name] project
 
 ## 📈 Current Status
 
-**Currently on**: 1.1 Financial Markets & Instruments  
-**Next up**: 1.2 Probability & Statistics  
-**Completion**: 0/32 subtopics (0%)
+**Currently on**: 1.2 Probability & Statistics  
+**Next up**: 1.3 Linear Algebra & Calculus  
+**Completion**: 1/32 subtopics (3%)
 
 ## 🎯 Goals
 
