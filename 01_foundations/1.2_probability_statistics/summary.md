@@ -1,89 +1,39 @@
 # 1.2 Probability & Statistics
 
-## Overview
+## Core Ideas (≈120 words):
+**Summarize random variables & key distributions (normal vs t/heavy-tailed), expectation, variance/covariance, plus LLN and CLT in one tight paragraph.**
 
-This subtopic establishes the mathematical foundation for quantitative finance through probability theory and statistical methods. These tools are essential for modeling financial returns, estimating risk, and developing trading strategies.
+Some core ideas that I learned about in Topic 1.2 include random variables and key distributions, which include normal vs. heavy-tailed, expectation, variance/covariance, LLN, and CLT. 
 
-## Learning Objectives
+I reviewed the topic of random variables where there exists both discrete RV (countable, like the number of "up" days for a given stock in a month) and continuous RV (stock returns). These random variables can be described by their distributions, which include probability density functions (continuous RVs), probability mass functions (discrete RVs), and cumulative distribution functions (probability of a variable, ie, returns falling below a certain threshold). 
 
-By the end of this subtopic, you should be able to:
+With distributions, we see normal distributions (bell-shaped) and t-distributions (heavy-tailed distributions, where the population standard deviation is unknown), which typically resemble financial data better. We use random variables in finance because we assume the markets are stochastic (random). 
 
-- **Apply probability distributions** to model financial returns and risk factors
-- **Conduct statistical inference** including hypothesis testing and confidence intervals
-- **Implement Monte Carlo simulations** for risk assessment and option pricing
-- **Analyze financial data** using appropriate statistical techniques
+E(x), known as the expected value of x or 'expectaion of x', can be calculated for both discrete and continuous RVs using formulas of the value of x and probability of x, algebraic for discrete and calculus-based (integrals) for continuous RVs. 
 
-## Key Concepts
+The Law of Large Numbers (LLN) states that sample means approximate the true mean, and as you increase the number of samples, you will get a more accurate estimate of the actual value. The Central Limit Theorem states that as the sample size n increases, the distribution of x will become more normalized/Gaussian, regardless of the distribution of the individual sample n. These two ideas are the foundation for many assumptions in finance from calculating returns and backtesting standards (LLM) to options contract pricing models like Black Scholes which assumes a log normal/Guassian distribution (CLT).
 
-### Probability Theory
-- **Random Variables**: Discrete and continuous distributions
-- **Common Distributions**: Normal, log-normal, Student's t, chi-square, F-distribution
-- **Multivariate Distributions**: Joint distributions, correlation, copulas
-- **Conditional Probability**: Bayes' theorem, conditional expectations
+## Two Equations, One Insight (≈80–120 words):
+**State two equations (e.g., E[X], Var(X), HAC SE for the mean, or CI for μ). Explain in plain English what each buys you in practice.**
 
-### Statistical Methods
-- **Descriptive Statistics**: Mean, variance, skewness, kurtosis, quantiles
-- **Inference**: Point estimation, interval estimation, hypothesis testing
-- **Regression Analysis**: Linear regression, multiple regression, diagnostic tests
-- **Time Series**: Autocorrelation, stationarity, trend analysis
+**Var(x) = E(x^2) - mean^2** is a measure of offset from the mean and is used in finance to gauge risk. A high variance could signal a high amount of risk or a possible opportunity to make an alpha-generating move if you are using something like a mean-reversion strategy. 
 
-### Financial Applications
-- **Return Modeling**: Log returns, geometric Brownian motion, jump processes
-- **Risk Metrics**: Value at Risk (VaR), Expected Shortfall, volatility estimation
-- **Portfolio Theory**: Mean-variance optimization, factor models
-- **Backtesting**: Strategy evaluation, performance attribution
+**E(x)** represents the expected value of x and is used in many areas of finance to estimate returns, volatility, and other variables of interest, in conjunction with the estimated probability of x occurring:
+- E(x) = x*p(X=x) (discrete RVs) 
+- E(x) = integral of x * f(x) (continuous RVs)
 
-## Mathematical Foundations
+## Short-Response Questions
 
-### Key Formulas
-- **Normal Distribution**: $f(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}$
-- **Central Limit Theorem**: $\frac{\bar{X} - \mu}{\sigma/\sqrt{n}} \sim N(0,1)$ as $n \to \infty$
-- **Law of Large Numbers**: $\bar{X}_n \to \mu$ as $n \to \infty$
-- **Bayes' Theorem**: $P(A|B) = \frac{P(B|A)P(A)}{P(B)}$
+### LLN vs. CLT:
+**What different promises do they make about sample means, and how do those differences affect how long a backtest should be vs. how wide your confidence intervals are?**
 
-### Statistical Tests
-- **t-test**: $t = \frac{\bar{x} - \mu_0}{s/\sqrt{n}}$
-- **Chi-square test**: $\chi^2 = \sum \frac{(O_i - E_i)^2}{E_i}$
-- **F-test**: $F = \frac{s_1^2}{s_2^2}$
+**LLN** promises that sample means are estimators of the true mean, which would hint that a longer backtest (more samples) is a better estimator of the actual value you're looking for (ie, Sharpe ratio). 
 
-## Industry Relevance
+**CLT** promises that as your sample size increases, the overall distribution of your experiment's mean will become more normalized/Gaussian regardless of the distribution of individual sample means, which hints that specific models are appropriate for estimating variables like Black Scholes for options pricing (even though this is not really good because we have things like tails, black swan events).
 
-This knowledge is essential for:
-- **Risk management** - Estimating portfolio risk and stress testing
-- **Quantitative trading** - Developing statistical arbitrage strategies
-- **Model validation** - Testing the accuracy of financial models
-- **Regulatory compliance** - Meeting statistical requirements for risk reporting
+### When Gaussian Hurts:
+**Give a concrete trading/risk scenario where normal assumptions understate risk. What's your quick fix (model or method) and why?**
 
-## Skills Developed
+Gaussian distributions can be problematic when normal assumptions understate risk, for example, by assuming normal pricing distributions for options and then having your strategy compromised by volatility changes and spikes that are not accounted for in a lognormal model like the Black-Scholes model. 
 
-- **Mathematical rigor** - Applying probability theory to financial problems
-- **Statistical programming** - Implementing statistical methods in Python/R
-- **Data analysis** - Extracting insights from financial datasets
-- **Model building** - Creating robust statistical models for finance
-
-## Prerequisites
-
-- Basic calculus and linear algebra
-- Familiarity with mathematical notation
-- Basic programming skills (Python/R recommended)
-
-## Next Steps
-
-After completing this subtopic:
-- **1.3 Linear Algebra & Calculus** - Advanced mathematical tools
-- **3.1 Time Series Analysis** - Specialized statistical methods
-- **4.1 Modern Portfolio Theory** - Application of statistical concepts
-
-## Resources
-
-- Probability and statistics textbooks
-- Financial econometrics resources
-- Statistical software documentation (SciPy, R)
-- Academic papers on financial statistics
-
-## Assessment
-
-- Solve probability problems relevant to finance
-- Implement statistical tests and confidence intervals
-- Build Monte Carlo simulations for risk assessment
-- Analyze real financial data using statistical methods
+**Fix:** Move to a model that accounts for volatility changes and stress testing of t-shaped distributions.
