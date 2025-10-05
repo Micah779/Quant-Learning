@@ -1,89 +1,13 @@
 # 1.3 Linear Algebra & Calculus
 
-## Overview
+## 1. Diversification & the Covariance Matrix
 
-This subtopic provides the advanced mathematical tools essential for quantitative finance, including linear algebra for factor analysis and optimization, and calculus for continuous-time models and derivatives pricing.
+**Question:** In your own words, explain how $w^T \Sigma w$ captures portfolio risk. Compare two cases: (i) two assets with $\rho = 0.8$ vs (ii) $\rho \approx 0$. What happens to the cross term $2w_1 w_2 \sigma_1 \sigma_2 \rho$, and what does that imply for diversification and position sizing in practice?
 
-## Learning Objectives
+**Answer:** The equation itself represents portfolio risk and sums up each assets volatility and the way the assets correlate with each other. The cross term is big and positive. With a correlation of 0.8 which is high, you can assume that as one asset spikes so will the other one, which means risk is higher and you should likely diversify your portfolio more or lower your position size. Where if the correlation is low ~0, then the two assets do not typically move together and holding both is a lower risk and you could increase position size.
 
-By the end of this subtopic, you should be able to:
+## 2. Interpreting PCA in Risk Management
 
-- **Apply linear algebra** to portfolio optimization, factor analysis, and risk decomposition
-- **Use calculus** for derivatives pricing, sensitivity analysis, and optimization
-- **Implement numerical methods** for solving financial problems computationally
-- **Understand mathematical foundations** of advanced quantitative models
+**Question:** Suppose PCA on $\Sigma$ shows PC1 explains 65–75% of variance and its loadings are all positive and similar across equities. What does that tell you about the dominant risk in the portfolio, and how would you hedge or budget risk against it? Finally, note one limitation of relying on PCA loadings estimated from a specific sample window.
 
-## Key Concepts
-
-### Linear Algebra
-- **Matrices and Vectors**: Operations, properties, and applications
-- **Eigenvalues and Eigenvectors**: Principal component analysis, factor models
-- **Matrix Decompositions**: SVD, Cholesky, QR decomposition
-- **Linear Systems**: Solving systems of equations, least squares
-
-### Calculus
-- **Multivariable Calculus**: Partial derivatives, gradients, Hessians
-- **Optimization**: Lagrange multipliers, constrained optimization
-- **Integration**: Multiple integrals, change of variables
-- **Differential Equations**: Ordinary and partial differential equations
-
-### Financial Applications
-- **Portfolio Optimization**: Quadratic programming, risk budgeting
-- **Factor Models**: Principal component analysis, factor decomposition
-- **Derivatives Pricing**: Greeks calculation, sensitivity analysis
-- **Risk Management**: VaR calculation, stress testing
-
-## Mathematical Foundations
-
-### Key Formulas
-- **Gradient**: $\nabla f = \left(\frac{\partial f}{\partial x_1}, \frac{\partial f}{\partial x_2}, \ldots, \frac{\partial f}{\partial x_n}\right)$
-- **Hessian Matrix**: $H_{ij} = \frac{\partial^2 f}{\partial x_i \partial x_j}$
-- **Eigenvalue Equation**: $A\mathbf{v} = \lambda\mathbf{v}$
-- **Lagrange Multipliers**: $\nabla f = \lambda \nabla g$ (subject to constraint $g = 0$)
-
-### Optimization
-- **Portfolio Optimization**: $\min \frac{1}{2}\mathbf{w}^T\Sigma\mathbf{w}$ subject to $\mathbf{w}^T\mathbf{1} = 1$
-- **Risk Parity**: $\min \sum_{i=1}^n \left(\frac{w_i}{\sigma_i} - \frac{1}{n}\right)^2$
-- **Black-Litterman**: $\mathbf{w} = \frac{1}{\lambda}\Sigma^{-1}\boldsymbol{\mu}$
-
-## Industry Relevance
-
-This knowledge is critical for:
-- **Portfolio management** - Optimization and risk budgeting
-- **Quantitative research** - Factor model development and analysis
-- **Risk management** - VaR calculation and stress testing
-- **Derivatives trading** - Greeks calculation and hedging
-
-## Skills Developed
-
-- **Mathematical modeling** - Translating financial problems into mathematical frameworks
-- **Computational methods** - Implementing numerical algorithms efficiently
-- **Optimization** - Solving complex portfolio and risk management problems
-- **Factor analysis** - Understanding and implementing factor models
-
-## Prerequisites
-
-- Strong foundation in calculus and linear algebra
-- Basic programming skills (Python/NumPy recommended)
-- Understanding of financial markets (from 1.1)
-
-## Next Steps
-
-After completing this subtopic:
-- **1.4 Programming Foundations** - Implementation skills
-- **2.2 Stochastic Calculus** - Advanced mathematical tools
-- **4.1 Modern Portfolio Theory** - Application of optimization
-
-## Resources
-
-- Advanced mathematics textbooks
-- Numerical analysis resources
-- Optimization libraries (SciPy, CVXPY)
-- Financial mathematics papers
-
-## Assessment
-
-- Solve optimization problems in finance
-- Implement factor analysis and PCA
-- Calculate derivatives and sensitivities
-- Apply numerical methods to financial problems
+**Answer:** If the principal component analysis on variance, shows that principal component 1 explains 65-75% of variance (a lot) and its loadings are all positive and similar across equities. We know that a single market-wide factor is driving most of the movement. To manage this you can hedge the market factor with an index future or ETF short, cap your portfolio's exposure to PC1 in your risk budget or add assets that don't load heavily on that factor. The main limit is instability, PCA depends on the sample window. Factors and loadings can shift when regime change, volatility spikes, or sectors rotate. So re-estimating regularly is important.

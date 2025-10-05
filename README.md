@@ -2,8 +2,8 @@
 
 A comprehensive personal roadmap to learining the fundementals of Quantitative Finance
 
-[![Progress](https://img.shields.io/badge/Progress-6%25-green?style=for-the-badge)](https://github.com/Micah779/Quant-Learning)
-[![Current Module](https://img.shields.io/badge/Current%20Module-1.3%20Linear%20Algebra%20%26%20Calculus-blue?style=for-the-badge)](https://github.com/Micah779/Quant-Learning)
+[![Progress](https://img.shields.io/badge/Progress-9%25-green?style=for-the-badge)](https://github.com/Micah779/Quant-Learning)
+[![Current Module](https://img.shields.io/badge/Current%20Module-1.4%20Programming%20Foundations-blue?style=for-the-badge)](https://github.com/Micah779/Quant-Learning)
 [![Status](https://img.shields.io/badge/Status-In%20Progress-yellow?style=for-the-badge)](https://github.com/Micah779/Quant-Learning)
 
 ## 🎯 Learning Path Overview
@@ -15,8 +15,8 @@ This repository contains a structured curriculum for quantitative finance, organ
 ### 🏗️ Module 1: Foundations of Quantitative Finance
 - [x] **1.1 Financial Markets & Instruments** - Equities, bonds, derivatives, FX, commodities
 - [x] **1.2 Probability & Statistics** - Distributions, hypothesis testing, statistical arbitrage
-- [🔄] **1.3 Linear Algebra & Calculus** - Matrices, optimization, numerical methods
-- [ ] **1.4 Programming Foundations** - Python, C++, R, SQL, Git, Linux
+- [x] **1.3 Linear Algebra & Calculus** - Matrices, optimization, numerical methods
+- [🔄] **1.4 Programming Foundations** - Python, C++, R, SQL, Git, Linux
 
 ### 💰 Module 2: Asset Pricing & Financial Modeling
 - [ ] **2.1 Time Value of Money** - Discount factors, yield curves, forward rates
@@ -87,9 +87,9 @@ feat: finished [subtopic] notes + [project_name] project
 
 ## 📈 Current Status
 
-**Currently on**: 1.3 Linear Algebra & Calculus  
-**Next up**: 1.4 Programming Foundations  
-**Completion**: 2/32 subtopics (6%)
+**Currently on**: 1.4 Programming Foundations  
+**Next up**: 2.1 Time Value of Money  
+**Completion**: 3/32 subtopics (9%)
 
 ## 🎯 Goals
 
