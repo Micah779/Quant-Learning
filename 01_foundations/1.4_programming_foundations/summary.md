@@ -4,93 +4,30 @@
 
 This subtopic covers the essential programming skills and tools required for quantitative finance, including core languages, development practices, and computational efficiency techniques.
 
-## Learning Objectives
+## Summary
 
-By the end of this subtopic, you should be able to:
+### 1. Reproducibility vs. Speed
 
-- **Write clean, efficient code** in Python, C++, and R for financial applications
-- **Use version control** (Git) for collaborative development and code management
-- **Implement high-performance computing** techniques for large-scale financial calculations
-- **Follow best practices** for testing, documentation, and code organization
+**In your own workflow, what specific steps ensure someone else could rerun your results a month from now?**
 
-## Key Concepts
+When working in quantitative finance your systems, models and automations have to be reproducible, and in many cases fast. Ensuring you have a solid version control, dockerization system, logging and clean code standards are a few of the steps that would help ensure you are creating reproducible products.
 
-### Core Languages
-- **Python**: Data analysis, machine learning, rapid prototyping
-- **C++**: High-performance computing, low-latency trading systems
-- **R**: Statistical analysis, econometrics, data visualization
-- **SQL**: Database management, data extraction and manipulation
+**Name one place you'd trade a bit of speed for reproducibility (and why), and one place you'd trade a bit of reproducibility overhead for speed (and why).**
 
-### Development Tools
-- **Version Control**: Git workflows, branching strategies, code review
-- **Testing**: Unit testing, integration testing, backtesting frameworks
-- **Documentation**: Code documentation, API documentation, research notes
-- **Performance**: Profiling, optimization, parallel computing
+The tradeoff between speed and reproducibility depends on what your desired outcomes are. For a market maker that profits off of the spread and nanosecond - millisecond discrepancies, speed is likely the priority, and reproducibility could be sacrificed. On the other hand if you are a Research or Prop Shop, you might be working on building and distributing a large variety of strategies and focus on reproducibility of your systems/automations so that you can quickly and repeatedly build, test, and evaluate strategies.
 
-### Financial Programming
-- **Data Handling**: Time series, market data, alternative data sources
-- **Numerical Computing**: NumPy, SciPy, numerical stability
-- **Visualization**: Matplotlib, Plotly, interactive dashboards
-- **APIs**: Market data APIs, trading platforms, cloud services
+### 2. Right Tool for the Job
 
-## Technical Skills
+**Given Python, C++, R, and SQL, explain which language you'd choose for: (a) cleaning a messy corporate actions feed, (b) running a 10,000-path Monte Carlo pricer under time pressure, and (c) performing hypothesis tests on factor ICs. Justify each choice in terms of performance, developer time, and team handoff.**
 
-### Python Ecosystem
-- **Core Libraries**: NumPy, Pandas, SciPy, Matplotlib
-- **Financial Libraries**: QuantLib, Zipline, PyFolio
-- **Machine Learning**: Scikit-learn, PyTorch, TensorFlow
-- **Data Sources**: Yahoo Finance, Alpha Vantage, Quandl
+For cleaning a messy corporate actions feed (data) I would use SQL because it is a query language (used to fetch, move, and place data) which is perfect for organizing a database. For running a 10,000 path Monte Carlo pricer under time pressure I would use C++ because it is great for high volume tasks that also need speed optimization which is hinted at with the time pressure constraint. Lastly for performing hypothesis tests on factor ICs I would use R programming language because it is great for statistical analysis of data.
 
-### C++ for Finance
-- **Performance**: Low-latency trading, high-frequency calculations
-- **Libraries**: Boost, QuantLib, Intel MKL
-- **Memory Management**: Smart pointers, RAII, memory optimization
-- **Parallel Computing**: OpenMP, CUDA, threading
+### 3. Testing What Matters
 
-### Development Practices
-- **Code Organization**: Modular design, object-oriented programming
-- **Testing**: Test-driven development, continuous integration
-- **Documentation**: Docstrings, type hints, README files
-- **Performance**: Profiling, benchmarking, optimization
+**Suppose your min-var backtest suddenly improves by 20% after "small refactors." What two tests or checks do you run first to rule out leakage/bugs?**
 
-## Industry Relevance
+Given a min-var backtest that suddenly improved by 20% after small refactors. I would check for leakage/bugs by running a timestamp shift (look ahead bias) test. This would be performed by lagging every input by +1 bar. If the performance collapses to the old level or worse, the previous run was using future info. Secondly, I would run the backtest with costs on and costs off to make sure that the PNL with costs off >= PNL with costs on. A sudden drop in costs or turnover constraints often explains a "free" +20%
 
-This knowledge is essential for:
-- **Quantitative research** - Implementing and testing trading strategies
-- **Risk management** - Building risk calculation systems
-- **Trading systems** - Developing high-performance trading algorithms
-- **Data analysis** - Processing and analyzing large financial datasets
+**What one invariant would you assert in code to catch this automatically next time?**
 
-## Skills Developed
-
-- **Programming proficiency** - Writing clean, efficient, maintainable code
-- **System design** - Architecting scalable financial systems
-- **Performance optimization** - Making code run faster and use less memory
-- **Collaboration** - Working effectively in development teams
-
-## Prerequisites
-
-- Basic programming experience in at least one language
-- Understanding of financial concepts (from 1.1)
-- Familiarity with mathematical concepts (from 1.2, 1.3)
-
-## Next Steps
-
-After completing this subtopic:
-- **2.1 Time Value of Money** - Apply programming to financial modeling
-- **3.1 Time Series Analysis** - Statistical programming applications
-- **6.4 Parallel Computing** - Advanced performance techniques
-
-## Resources
-
-- Programming textbooks and online courses
-- Financial programming libraries documentation
-- Open source quantitative finance projects
-- Industry best practices and coding standards
-
-## Assessment
-
-- Write clean, efficient code for financial applications
-- Implement and test quantitative models
-- Optimize code for performance
-- Collaborate effectively using version control
+To catch this next time we can make sure no feature or estimator may include data from the decision bar. This means at decision time t features/stats must be built from data strictly before t. This assert would rule out look ahead bias. Also have an assert that would fail if the after costs PNL >= before costs PNL. This is checking for costs inequality.

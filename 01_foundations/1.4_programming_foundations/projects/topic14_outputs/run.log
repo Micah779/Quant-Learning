@@ -1,0 +1,10 @@
+2025-10-06 12:03:52,691 | INFO | Starting Topic 1.4 run
+2025-10-06 12:03:52,692 | INFO | Env snapshot: {"python": "3.11.0 (v3.11.0:deaf509e8f, Oct 24 2022, 14:43:23) [Clang 13.0.0 (clang-1300.0.29.30)]", "platform": "macOS-26.0-arm64-arm-64bit", "versions": {"numpy": "1.24.3", "pandas": "2.0.3", "matplotlib": "3.6.3", "scipy": "n/a", "numba": "numba"}}
+2025-10-06 12:07:55,629 | INFO | cffi mode is CFFI_MODE.ANY
+2025-10-06 12:07:55,816 | INFO | R home found: /Library/Frameworks/R.framework/Resources
+2025-10-06 12:07:56,749 | INFO | R library path: 
+2025-10-06 12:07:56,750 | INFO | LD_LIBRARY_PATH: 
+2025-10-06 12:07:56,789 | WARNING | Error importing in API mode: ImportError("dlopen(/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/_rinterface_cffi_api.abi3.so, 0x0002): Library not loaded: /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/lib/libRblas.dylib\n  Referenced from: <20FB70DB-7E84-3375-A520-E0350E06C060> /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/_rinterface_cffi_api.abi3.so\n  Reason: tried: '/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/lib/libRblas.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/lib/libRblas.dylib' (no such file), '/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/lib/libRblas.dylib' (no such file)")
+2025-10-06 12:07:56,791 | WARNING | Trying to import in ABI mode.
+2025-10-06 12:07:56,808 | INFO | Default options to initialize R: rpy2, --quiet, --no-save
+2025-10-06 12:07:57,365 | INFO | R is already initialized. No need to initialize.
