@@ -1,3 +1,3 @@
 # qfnotes
 
-My notes while learning qf learning fundementals.
+My notes while learning qf fundementals.
